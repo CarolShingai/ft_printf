@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 19:23:52 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/06 00:39:01 by cshingai         ###   ########.fr       */
+/*   Created: 2023/10/13 16:41:33 by cshingai          #+#    #+#             */
+/*   Updated: 2024/01/06 00:12:09 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
+int	ft_strlen(const char *str)
+{
+	int	index;
 
-#include <stdio.h>
-
-int	ft_putchar(char c);
-int	ft_putnbr(int n);
-int	ft_printf(const char *str, ...);
-int	print_format(const char *str, va_list args, int idx);
-int	ft_strlen(const char *str);
-int	ft_putstr(char *s);
-
-#endif 
+	index = 0;
+	while (str[index])
+	{
+		index++;
+	}
+	return (index);
+}

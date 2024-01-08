@@ -6,48 +6,61 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:39:07 by cshingai          #+#    #+#             */
-/*   Updated: 2023/12/30 19:29:07 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/01/06 15:35:31 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <string.h>
+#include "ft_printf.h"
 
-void	ft_printf(char *placeholders, ...);
+int	print_format(const char *str, va_list args, int idx)
+{
+	int result;
+
+	result = 0;
+	if (str[idx] == 'c')
+		result = ft_putchar(va_arg(args, int));
+	else if (str[idx] == 'd')
+		result = ft_putnbr(va_arg(args, int));
+	else if (str[idx] == 's')
+		result = ft_putstr(va_arg(args, char *));
+	return (result);
+}
+
+
+
+int	ft_printf(const char *str, ...)
+{
+	int		i;
+	int 	num_char;
+	va_list args;
+	va_start(args, str);
+	
+	i = 0;
+	num_char = 0;
+	while(str[i])
+	{
+		if(str[i] == '%' && str[i + 1])
+		{
+			num_char += print_format(str, args, i + 1);
+			i++;
+		}
+		else
+			num_char += ft_putchar(str[i]);
+		i++;	
+	}
+	va_end(args);
+	return (num_char);
+}
 
 int	main(void)
 {
-	ft_printf("fddf", 1.2, 51, 3, 12.5);
+	char x[] = "foi?";
+	
+	ft_printf("ft_printf:%c%d%s\n", 'a', 15, x);
+	printf("printf:%c%d%s\n", 'a', 15, x);
+	printf("sem argumentos:");
+	// printf();
+    return 0;
 }
-
-void ft_printf(char *placeholders, ...)
-{
-	int		i;
-	int 	num_args;
-	va_list args;
-	va_start(args, placeholders);
-
-	i = -1;
-	num_args = strlen(placeholders);
-	while (i++ <num_args)
-	{
-		if(placeholders[i] == 'd')
-		{
-			int x;
-			
-			x = va_arg(args, int);
-			printf("%d\n", x);
-		}
-		else if(placeholders[i] == 'f')
-		{
-			double x;
-			
-			x = va_arg(args, double);
-			printf("%f\n", x);
-		}	
-	}
-	va_end(args);
-}
-
 
 

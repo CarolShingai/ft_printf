@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 19:23:52 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/06 00:39:01 by cshingai         ###   ########.fr       */
+/*   Created: 2023/10/20 19:13:43 by cshingai          #+#    #+#             */
+/*   Updated: 2024/01/05 19:06:40 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-
-#include <stdio.h>
-
-int	ft_putchar(char c);
-int	ft_putnbr(int n);
-int	ft_printf(const char *str, ...);
-int	print_format(const char *str, va_list args, int idx);
-int	ft_strlen(const char *str);
-int	ft_putstr(char *s);
-
-#endif 
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}

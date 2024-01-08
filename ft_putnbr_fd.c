@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 19:23:52 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/06 00:39:01 by cshingai         ###   ########.fr       */
+/*   Created: 2023/10/27 16:23:44 by cshingai          #+#    #+#             */
+/*   Updated: 2024/01/05 18:58:45 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
+int	ft_putnbr(int n)
+{
+	char	str;
 
-#include <stdio.h>
-
-int	ft_putchar(char c);
-int	ft_putnbr(int n);
-int	ft_printf(const char *str, ...);
-int	print_format(const char *str, va_list args, int idx);
-int	ft_strlen(const char *str);
-int	ft_putstr(char *s);
-
-#endif 
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return 0;
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+	else
+	{
+		str = n + '0';
+		write(1, &str, 1);
+	}
+}
