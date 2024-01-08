@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_dec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 16:56:44 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/08 20:03:49 by cshingai         ###   ########.fr       */
+/*   Created: 2024/01/08 20:08:59 by cshingai          #+#    #+#             */
+/*   Updated: 2024/01/08 20:10:22 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_putnbr_dec(unsigned int n)
 {
-	int	len;
+	char	str;
+	int		x;
 
-	len = 0;
-	if(!s)
-		return (write(1, "(null)", 6));
-	len = ft_strlen(s);
-	write(1, s, len);
-	return (len);
+	x = 0;
+	if (n > 9)
+	{
+		x += ft_putnbr(n / 10);
+		x += ft_putnbr(n % 10);
+	}
+	else
+	{
+		str = n + '0';
+		x += write(1, &str, 1);
+	}
+	return (x);
 }

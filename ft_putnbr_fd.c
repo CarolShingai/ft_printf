@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:23:44 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/05 18:58:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:06:21 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 int	ft_putnbr(int n)
 {
 	char	str;
+	int		x;
 
+	x = 0;
 	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return 0;
-	}
+		return (write(1, "-2147483648", 11));
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		x += write(1, "-", 1);
 		n *= -1;
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		x += ft_putnbr(n / 10);
+		x += ft_putnbr(n % 10);
 	}
 	else
 	{
 		str = n + '0';
-		write(1, &str, 1);
+		x += write(1, &str, 1);
 	}
+	return (x);
 }
