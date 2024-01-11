@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:39:07 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/11 16:42:23 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:07:40 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,38 +56,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (num_char);
 }
-
-// int	main(void)
-// {
-// 	// char x[] = "foi?";
-// 	// int h = 255;
-// 	int count_original, count_mine;
-
-// 	// count_mine = ft_printf("%c%d%s\n", 'a', 15, x);
-// 	// count_original = printf("%c%d%s\n", 'a', 15, x);
-// 	// printf("original %i - minha - %i\n", count_original, count_mine);
-
-
-// 	// count_mine = ft_printf("sem argumentos: %s\n", (char *) 0);
-// 	// count_original = printf("sem argumentos: %s\n", (char *) 0);
-// 	// printf("original %i - minha - %i\n", count_original, count_mine);
-
-
-// 	// count_mine = ft_printf("hex: %X\n", h);
-// 	// count_original = printf("hex: %X\n", h);
-// 	// printf("original %i - minha - %i\n", count_original, count_mine);
-
-// 	// count_mine = ft_printf("dec: %u\n", 48);
-// 	// count_original = printf("dec: %u\n", 48);
-// 	// printf("original %i - minha - %i\n", count_original, count_mine);
-
-// 	// count_mine = ft_printf("perc: %%\n");
-// 	// count_original = printf("perc: %%\n");
-// 	// printf("original %i - minha - %i\n", count_original, count_mine);
-
-// 	count_mine = ft_printf("hash: %#x\n", 24);
-// 	count_original = printf("hash: %#x\n", 24);
-// 	printf("original %i - minha - %i\n", count_original, count_mine);
-
-// 	return 0;
-// }
