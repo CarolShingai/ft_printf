@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:39:07 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/11 17:07:40 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:13:31 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	num_char = 0;
+	if (str == 0)
+		return (-1);
 	va_start(args, str);
 	while (str[i])
 	{
