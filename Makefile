@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/15 15:13:33 by cshingai          #+#    #+#              #
-#    Updated: 2024/01/10 18:17:58 by cshingai         ###   ########.fr        #
+#    Updated: 2024/01/11 17:30:54 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ_BONUS	= ${SRC_BONUS:src_bonus/%.c=obj/%.o}
 
 all: ${NAME}
 ${NAME}: ${OBJ}
-bonus: fclean ${OBJ_BONUS}
+bonus: ${OBJ_BONUS}
 
 obj/%.o: src/%.c
 	$(shell if [ ! -d obj ]; then mkdir -p obj; fi)
